@@ -1,0 +1,236 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1; /* Updated background color */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px; /* Adjust padding to move content lower */
+}
+
+/* Header Container */
+.header-container {
+    width: 100%;
+    background-color: #005b96; /* Same color as footer */
+    color: #ffffff;
+    padding: 20px; /* Reduced padding for a more compact header */
+    margin-top: -120px; /* Move it further up */
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative; /* For positioning back button */
+    z-index: 2; /* Ensures header stays on top */
+}
+
+/* Back Button Styling */
+.back-button {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    bottom: 20px; /* Adjusted to position the button a bit lower */
+}
+
+.back-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Invalid Credentials Styling */
+.message-alert {
+    z-index: 1;
+    padding: 10px;
+    margin: 40px auto; /* Increased margin-top to move it further down */
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid #ff4d4d;
+    background-color: #ffcccc;
+    color: #a10000;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #ffffff; /* White color for contrast */
+    margin: 5px 0 0 0; /* Added margin-top to move it down */
+    font-weight: bold;
+}
+
+/* Logo Styling */
+.logo {
+    position: absolute;
+    left: 10px;
+    top: 5px; /* Moved up by reducing the top value */
+    width: 70px; /* Adjust size as needed */
+    height: auto;
+}
+
+/* Label and Input Styling */
+label {
+    font-size: 1.1em;
+    color: #005b96;
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 45%; /* Adjusted width for spacing */
+    text-align: right;
+    margin-top: 10px; /* Spacing between label and previous element */
+    margin-right: 10px; /* Added space between label and input field */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 50%; /* Adjusted width to fit with label changes */
+    padding: 8px;
+    margin-top: 10px; /* Space between input and label */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+input[type="submit"] {
+    color: #ffffff;
+    background-color: #0d6efd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: block;
+    margin: 15px auto; /* Center the button and add spacing above */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 60%;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #005b96;
+}
+
+/* Form Layout */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Navbar and Hover Effects */
+.navbar .nav-link {
+    color: #f1f1f1;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.navbar .nav-link:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4) !important;
+}
+
+.navbar .nav-link::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 30px !important;
+    transition: opacity 0.3s ease !important;
+    opacity: 0 !important;
+}
+
+.navbar .nav-link:hover::before {
+    opacity: 1 !important;
+}
+
+.navbar .nav-link::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 300% !important;
+    height: 300% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) scale(0) !important;
+    transition: transform 0.5s ease !important;
+    opacity: 0 !important;
+}
+
+.navbar .nav-link:hover::after {
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+    transition: transform 0.5s ease, opacity 0.5s ease !important;
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9em;
+    margin: 10px 0;
+    color: #f1f1f1;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icon {
+    color: #f1f1f1;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+.scroll-top {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #0d6efd;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}

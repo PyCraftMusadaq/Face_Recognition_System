@@ -1,0 +1,255 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.left-column {
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 100%;
+}
+
+.left-column::before {
+    content: "";
+    position: absolute;
+    background-image: url("/static/images/bg.jpg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-img {
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+.navbar .nav-link {
+    color: #f1f1f1;
+    background-color: #0056b3; /* Updated background color */
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.navbar .nav-link:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4) !important;
+}
+
+.navbar .nav-link::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 30px !important;
+    transition: opacity 0.3s ease !important;
+    opacity: 0 !important;
+}
+
+.navbar .nav-link:hover::before {
+    opacity: 1 !important;
+}
+
+.navbar .nav-link::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 300% !important;
+    height: 300% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) scale(0) !important;
+    transition: transform 0.5s ease !important;
+    opacity: 0 !important;
+}
+
+.navbar .nav-link:hover::after {
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+    transition: transform 0.5s ease, opacity 0.5s ease !important;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+.scroll-top:hover {
+    background-color: #0056b3;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}
+
+/* Button Style */
+.login-button {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Modal Background */
+.login-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content */
+.login-modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Modal Option Buttons */
+.modal-option {
+    background: linear-gradient(45deg, #0056b3, #007bff);
+    color: #fff;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.modal-option:hover {
+    background: linear-gradient(45deg, #004494, #0056b3);
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Register Button Style (Same as Login) */
+.register-button {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    cursor: pointer;
+}
+
+.register-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Modal Background for Register */
+.register-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Content for Register */
+.register-modal-content {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Close Button for Register Modal */
+.register-modal .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+/* Modal Option Buttons */
+.modal-option {
+    background: linear-gradient(45deg, #0056b3, #007bff);
+    color: #fff;
+    padding: 10px 15px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.modal-option:hover {
+    background: linear-gradient(45deg, #004494, #0056b3);
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

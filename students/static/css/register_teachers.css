@@ -1,0 +1,171 @@
+/* Basic Reset */
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7ff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+
+.header-container {
+    width: 100%;
+    background-color:#005b96; /* Same color as footer */
+    color: #ffffff;
+    padding: 55px;
+    margin-top: -100px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative; 
+}
+
+/* Back Button Styling */
+.back-button {
+    color: #ffffff;
+    background-color:#0d6efd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    position: absolute;
+    right: 10px;
+    bottom: 30px; /* Moved to the rightmost side */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color:#0d6efd;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #ffffff; /* White color for contrast */
+    margin: 5px 0 0 0; /* Added margin-top to move it down */
+    font-weight: bold;
+}
+
+/* Logo Styling */
+.logo {
+    position: absolute;
+    left: 10px;
+    top: 50px;
+    width: 70px; /* Adjust size as needed */
+    height: auto;
+}
+
+
+/* Label and Input Styling */
+label {
+    font-size: 1.1em;
+    color: #005b96; /* Light blue text */
+    margin-bottom: 3px; /* Reduced margin for labels */
+    display: inline-block; /* Inline display for labels */
+    width: 50%; /* Set width for labels to align with inputs */
+    text-align: right; /* Align labels to the right */
+    margin-right: 10px; /* Added space between labels and inputs */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 50%; /* Reduced width for input fields */
+    padding: 8px; /* Reduced padding for input */
+    margin-bottom: 10px; /* Reduced space between inputs */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Button Styling */
+input[type="submit"] {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 8px 16px; /* Smaller padding */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* For centering */
+    margin: 0 auto; /* Center horizontally */
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* Form Layout */
+.form-group {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    margin-bottom: 10px; /* Space between form groups */
+    gap: 10px; /* Added gap between label and input fields */
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9em;
+    margin: 10px 0;
+    color: #f1f1f1;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icon {
+    color: #f1f1f1;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+.scroll-top {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #0d6efd;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}

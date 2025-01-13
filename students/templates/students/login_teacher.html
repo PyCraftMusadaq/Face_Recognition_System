@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login_student.css' %}">
+
+    <style>
+        body {
+            background-color: #f1f1f1; /* Light blue background */
+            background-image: url("{% static 'images/e-checkinblur.png' %}"); /* Add background image */
+            background-size: 30%; /* Set the background image size to 30% of its original size */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-position: center; /* Center the background image */
+        }
+
+        .header-container {
+            width: 100%;
+            background-color: #005b96;
+            color: #ffffff;
+            padding: 45px;
+            margin-top: -100px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .back-button {
+            color: #ffffff;
+            background-color: #0056b3;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1em;
+            position: absolute;
+            right: 10px;
+            bottom: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #005b96;
+        }
+
+        .header-container h1 {
+            font-size: 1.8em;
+            color: #ffffff;
+            margin: 5px 0 0 0;
+        }
+
+        /* Invalid Credentials Styling */
+        .message-alert {
+            z-index: 1;
+            padding: 10px;
+            margin: 10px auto; /* Reduced margin-top to prevent overlapping */
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid #ff4d4d;
+            background-color: #ffcccc;
+            color: #a10000;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Logo Styling */
+        .logo {
+            position: absolute;
+            right: 10px;
+            top: 60px; /* Moved down */
+            width: 65px; /* Adjust size as needed */
+            height: auto;
+        }
+
+        /* Login Button Styling */
+        .login-button {
+            background: linear-gradient(45deg, #005b96, #007bff); /* Gradient background */
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+            cursor: pointer;
+        }
+
+        .login-button:hover {
+            background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+            color: #fff; /* Ensure text remains white on hover */
+            transform: scale(1.05); /* Slightly larger on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        }
+
+        /* Footer Styling */
+        .footer {
+            width: 100%;
+            background-color:#005b96;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer p {
+            font-size: 0.9em;
+            margin: 10px 0;
+            color: #f1f1f1;
+        }
+
+        .footer .social-icons {
+            margin: 10px 0;
+        }
+
+        .footer .social-icon {
+            color: #f1f1f1;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icon:hover {
+            color: #ffcc00;
+        }
+        .message-alert{
+            border:1px solid red;
+            font-size:15px;
+            z-index:10;
+        }
+    </style>
+</head>
+<body>
+    
+
+    <div class="header-container">
+        <h1>Login Teacher</h1>
+        <a href="{% url 'index' %}" class="back-button">Back</a>
+        <img src="{% static 'images/e-checkin.png' %}" alt="logo" class="logo">
+    </div>
+    
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message-alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% elif invalid_credentials %}
+        <div class="message-alert">
+            Invalid Username or Password, please try again.
+        </div>
+    {% endif %}
+    
+
+   <form action="" method="POST">
+    {% csrf_token %}
+    <div class="form-group mb-3">
+        <label for="username">Teacher Username: </label>
+        <input type="text" name="username" id="username" required>
+    </div>
+    <div class="form-group mb-3">
+        <label for="password">Password: </label>
+        <input type="password" name="password" id="password" required>
+    </div>
+    <input type="submit" value="Login" class="btn btn-primary login-button">
+</form>
+
+    <p><a href="/forgot-password" style="color: #005b96; text-decoration: none;">Forgot Password?</a></p>
+    <p><a href="{% url 'teacher_register' %}" style="color: #005b96; text-decoration: none;">If you don’t have an account, Register.</a></p>
+
+    <!-- Forgot Password Form (Add this to the /forgot-password page) -->
+    <div id="forgot-password" style="display:none;"> <!-- Initially hidden -->
+        <h2>Recover Password</h2>
+        <form id="recover-form" action="/recover-password" method="POST"> <!-- Specify action for password recovery -->
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email Address: </label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <input type="submit" value="Send Recovery Link" class="btn btn-primary login-button">
+
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to toggle the visibility of the forgot password form
+        document.querySelector('a[href="/forgot-password"]').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+            document.getElementById('forgot-password').style.display = 'block'; // Show the form
+        });
+
+        // Alert on recovery link submission
+        document.getElementById('recover-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            alert('Recovery password link has been sent to your email.'); // Show alert
+            window.location.href = "{% url 'student_login' %}"; 
+        });
+    </script>
+
+     <!-- Professional Footer with Hoverable Social Icons -->
+   <footer class="footer text-white text-center py-3 mt-auto" style="background-color: #0056b3;">
+    <span>&copy; 2024 E-CheckIn</span>
+    <div class="social-icons mt-3">
+        <a href="https://www.facebook.com" target="_blank" class="social-icon text-white fs-4 me-3" style="text-decoration: none;">
+            <i class="fab fa-facebook"></i>
+        </a>
+        <a href="https://www.twitter.com" target="_blank" class="social-icon text-white fs-4 me-3" style="text-decoration: none;">
+            <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com" target="_blank" class="social-icon text-white fs-4 me-3" style="text-decoration: none;">
+            <i class="fab fa-instagram"></i>
+        </a>
+    </div>
+</footer>
+</body>
+</html>

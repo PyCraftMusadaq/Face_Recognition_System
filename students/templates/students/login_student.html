@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login_student.css' %}">
+
+    <style>
+        body {
+            background-color: #f1f1f1;
+            background-image: url("{% static 'images/e-checkinblur.png' %}");
+            background-size: 30%;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        /* Header Container */
+        .header-container {
+            width: 100%;
+            background-color: #005b96; /* Same color as footer */
+            color: #ffffff;
+            padding: 20px;
+            margin-top: -60px; /* Move it further up */
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 10; /* Ensures header stays on top */
+        }
+
+        /* Back Button Styling */
+        .back-button {
+            background: linear-gradient(45deg, #0056b3, #007bff);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            position: absolute;
+            right: 10px;
+            bottom: 20px;
+        }
+
+        .back-button:hover {
+            background: linear-gradient(45deg, #004494, #0056b3);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Invalid Credentials Styling */
+        .message-alert {
+            z-index: 1;
+            padding: 10px;
+            margin: 10px auto; /* Reduced margin-top to prevent overlapping */
+            width: 90%;
+            max-width: 400px;
+            border: 1px solid #ff4d4d;
+            background-color: #ffcccc;
+            color: #a10000;
+            text-align: center;
+            border-radius: 8px;
+            font-weight: bold;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        /* Logo Styling */
+        .logo {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 70px;
+            height: auto;
+        }
+
+        /* Login Button Styling */
+        .login-button {
+            background: linear-gradient(45deg, #0056b3, #007bff);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            width: 60%;
+        }
+
+        .login-button:hover {
+            background: linear-gradient(45deg, #004494, #0056b3);
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Form Layout */
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <img src="{% static 'images/e-checkin.png' %}" alt="E-CheckIn Logo" class="logo">
+        <h1>Login Student</h1>
+        <a href="{% url 'index' %}" class="back-button">Back</a>
+    </div>
+    
+    {% if messages %}
+        {% for message in messages %}
+            <div class="message-alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% elif invalid_credentials %}
+        <div class="message-alert">
+            Invalid Username or Password, please try again.
+        </div>
+    {% endif %}
+
+    <!-- Form Container -->
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="username">Student Username: </label>
+            <input type="text" name="username" id="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password: </label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <input type="submit" value="Login" class="btn btn-primary login-button">
+    </form>
+
+    <p><a href="/forgot-password" style="color: #005b96; text-decoration: none;">Forgot Password?</a></p>
+    <p><a href="{% url 'student_register' %}" style="color: #005b96; text-decoration: none;">If you don’t have an account, Register.</a></p>
+
+    <!-- Forgot Password Form -->
+    <div id="forgot-password" style="display:none;">
+        <h2>Recover Password</h2>
+        <form id="recover-form" action="/recover-password" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email Address: </label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <input type="submit" value="Send Recovery Link" class="btn btn-primary login-button">
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('a[href="/forgot-password"]').addEventListener('click', function(event) {
+            event.preventDefault();
+            document.getElementById('forgot-password').style.display = 'block';
+        });
+
+        document.getElementById('recover-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Recovery password link has been sent to your email.');
+            window.location.href = "{% url 'student_login' %}";
+        });
+    </script>
+
+    <!-- Footer with Hoverable Social Icons -->
+    <footer class="footer text-white text-center py-3 mt-auto" style="background-color: #0056b3;">
+        <span>&copy; 2024 E-CheckIn</span>
+        <div class="social-icons mt-3">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon text-white fs-4 me-3" style="text-decoration: none;">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon text-white fs-4 me-3" style="text-decoration: none;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon text-white fs-4 me-3" style="text-decoration: none;">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>

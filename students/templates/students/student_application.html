@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/student_profile.css' %}">
+
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url("{% static 'images/e-checkinblur.png' %}");
+            background-size: 30%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: #f1f1f1;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        .header-container {
+            width: 100%;
+            background-color: #005b96;
+            color: #ffffff;
+            padding: 45px;
+            margin-top: -120px;
+            text-align: center;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            position: absolute;
+            left: 10px;
+            top: 5px;
+            width: 70px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #ffffff;
+            font-weight: bold;
+            margin: 20px 0 0 0;
+            position: relative;
+            top: 30px;
+        }
+
+        .logout-button {
+            position: absolute;
+            right: 100px;
+            top: 80px;
+            background: linear-gradient(45deg, #0056b3, #007bff);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logout-button:hover {
+            background: linear-gradient(45deg, #004494, #0056b3);
+            color: #fff;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .e-checkin-logo-left {
+            position: absolute;
+            left: 20px;
+            top: 60px;
+            width: 70px;
+            height: auto;
+        }
+
+        .centered-form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .messages {
+            color: #d9534f;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        form {
+            background-color: none;
+            padding: 20px;
+            border-radius: 8px;
+            
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #005b96;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select,
+        textarea {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+            max-height: 150px;
+        }
+
+        .submit-btn {
+            color: #ffffff;
+            background-color: #0d6efd;
+            padding: 8px 16px;
+            border-radius: 5px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            margin-top: 10px;
+            text-align: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+            font-size: 0.9rem;
+            border: none;
+            outline: none;
+        }
+
+        .submit-btn:hover {
+            background-color: #004080;
+        }
+
+        .table-data {
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        table {
+            width: 90%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        th {
+            background-color: #005b96;
+            color: white;
+            font-weight: bold;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #e9e9e9;
+        }
+
+        .footer {
+            width: 100%;
+            background-color: #005b96;
+            color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        .footer p {
+            font-size: 0.9em;
+            margin: 10px 0;
+            color: #f1f1f1;
+        }
+
+        .footer .social-icons {
+            margin: 10px 0;
+        }
+
+        .footer .social-icon {
+            color: #f1f1f1;
+            font-size: 1.5em;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer .social-icon:hover {
+            color: #ffcc00;
+        }
+
+        .scroll-top {
+            display: inline-block;
+            background-color: #0d6efd;
+            color: #ffffff;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .scroll-top:hover {
+            background-color: #004080;
+        }
+
+        .scroll-top i {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <img src="{% static 'images/e-checkin.png' %}" alt="E-CheckIn Logo" class="e-checkin-logo-left">
+        <h1>Student Profile</h1>
+        <a href="#" class="logout-button" onclick="history.back(); return false;">Back</a>
+    </div>
+
+    <div class="messages">
+        {% if messages %}
+        {% for message in messages %}
+        {{ message }}
+        {% endfor %}
+        {% endif %}
+    </div>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        {% comment %} <div class="form-group">
+            <label for="stuid">Student ID:</label>
+            <input type="text" name="studentID" id="stuid" required>
+        </div>
+        <div class="form-group">
+            <label for="firstname">Full Name:</label>
+            <input type="text" name="FirstName" id="firstname" required>
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" name="LastName" id="lastname" required>
+        </div>
+        <div class="form-group">
+            <label for="semester">Semester:</label>
+            <select name="semester" id="semester" required>
+                <option value="First">First</option>
+                <option value="Second">Second</option>
+                <option value="Third">Third</option>
+                <option value="Forth">Forth</option>
+                <option value="Fifth">Fifth</option>
+                <option value="Sixth">Sixth</option>
+                <option value="Seventh">Seventh</option>
+                <option value="Eighth">Eighth</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="department">Select Department:</label>
+            <select id="department" name="program" required>
+                <option value="BSCS">BSCS (Computer Science)</option>
+                <option value="BSIT">BSIT (Information Technology)</option>
+                <option value="BSE">BSE (Software Engineering)</option>
+                <option value="BSSE">BSSE (System Engineering)</option>
+                <option value="BBA">BBA (Business Administration)</option>
+                <option value="BA">BA (Arts)</option>
+                <option value="BSPHY">BS Physics</option>
+                <option value="BSCHEM">BS Chemistry</option>
+                <option value="BSBIO">BS Biology</option>
+                <option value="BSMATH">BS Mathematics</option>
+            </select>
+        </div> {% endcomment %}
+        <div class="form-group">
+            <label for="teacherID">Teacher ID:</label>
+            <input type="text" name="teacherID" id="teacherID" required>
+        </div>
+        <div class="form-group">
+            <label for="teachername">Teacher Name:</label>
+            <input type="text" name="teachername" id="teachername" required>
+        </div>
+        <div class="form-group">
+            <label for="Application">Application:</label>
+            <textarea name="applicationcontent" id="Application" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" required>
+        </div>
+        <input type="submit" value="Submit" class="submit-btn">
+    </form>
+
+    <footer class="footer">
+        <p>&copy; 2024 E-CheckIn</p>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <h1>Welcome {{teachers.TeacherName}}</h1>
+
+     <table>
+        <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Student Name</th>
+                <th>Date</th>
+                <th>Status</th>
+                <th>Application</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in applications %}
+              <tr>
+                {{application.StudentID}}
+                {{application.Full_Name}}
+                {{application.Date}}
+                {{application.status}}
+                {{application.ApplicationContent}}
+                
+              </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+     </table>
+    
+</body>
+</html>

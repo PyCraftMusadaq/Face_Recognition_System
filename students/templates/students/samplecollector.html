@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Collection</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/samplecollector.css'%}">
+
+    <style>
+        body {
+            background-color: #f1f1f1; /* Light blue background */
+            background-image: url("{% static 'images/e-checkinblur.png' %}"); /* Add background image */
+            background-size: 30%; /* Set the background image size to 50% of its original size */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-position: center; /* Center the background image */
+        }
+        .centered-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh; /* Centers form vertically within the viewport */
+        }
+        form {
+            text-align: center; /* Center-align text within form */
+        }
+        label, input[type="text"], input[type="submit"] {
+            display: block;
+            margin: 10px auto; /* Centers each input and label */
+        }
+        input[type="text"] {
+            width: 50%; /* Adjusts width to fit centered design */
+            max-width: 300px; /* Limits width for larger screens */
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <a href="#" class="back-button" onclick="history.back(); return false;">Back</a>
+        <h1>Upload Your Samples</h1>
+    </div>
+
+    <div class="centered-form">
+        {{msg}}
+        {% comment %} <form action="" method="POST">
+            {% csrf_token %}
+            <label for="id">Enter your Student ID</label>
+            <input type="text" name="id"> <br>
+            <label for="id">Enter your First Name</label>
+            <input type="text" name="fname"> <br>
+            <label for="id">Enter your Last Name</label>
+            <input type="text" name="lname"> <br>
+            <input type="submit" value="Submit">
+        </form> {% endcomment %}
+    </div>
+
+    <!-- Footer Section -->
+    <div class="footer">
+        <div class="social-icons">
+            <a href="#" class="social-icon text-white fs-4 me-3"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="social-icon text-white fs-4 me-3"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon text-white fs-4 me-3"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+    </div>
+</body>
+</html>

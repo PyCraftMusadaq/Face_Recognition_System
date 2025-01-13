@@ -1,0 +1,202 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+/* Header Container */
+.header-container {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px;
+    margin-top: -100px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Back Button Styling */
+.back-button {
+    color: #ffffff;
+    background-color: #0d6efd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    position: absolute;
+    left: 10px;
+    bottom: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #0d6efd;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #ffffff;
+    margin: 5px 0;
+}
+
+/* Label and Input Styling */
+label {
+    font-size: 1.1em;
+    color: #005b96;
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 45%;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+input[type="text"] {
+    width: 50%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+input[type="submit"] {
+    color: #ffffff;
+    background-color: #0d6efd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: block;
+    margin: 15px auto;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 60%;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #005b96;
+}
+
+/* Form Layout */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Table Styling */
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 1em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #005b96;
+    color: #ffffff;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9em;
+    margin: 10px 0;
+    color: #f1f1f1;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icon {
+    color: #f1f1f1;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+/* Scroll to Top Button */
+.scroll-top {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #0d6efd;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}
+
+
+
+
+.submit-button {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.submit-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}

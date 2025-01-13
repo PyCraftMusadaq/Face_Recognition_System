@@ -1,0 +1,289 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px; /* Adjust padding to move content lower */
+}
+
+.header-container {
+    width: 100%;
+    background-color: #005b96; /* Same color as footer */
+    color: #ffffff;
+    padding: 45px;
+    margin-top: -100px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative; /* For positioning elements */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    position: absolute;
+    left: 20px;
+    top: 55px; /* Moves the logo down slightly */
+    width: 70px; /* Adjust size as needed */
+    height: auto;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+    top: 60px;
+}
+
+/* Label and Input Styling */
+label {
+    font-size: 1.1em;
+    color: #005b96;
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 45%;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 50%;
+    padding: 8px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+input[type="submit"] {
+    color: #ffffff;
+    background-color: #0d6efd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: block;
+    margin: 15px auto;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 60%;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #005b96;
+}
+
+/* Form Layout */
+.form-group {
+    background-color: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.form-container {
+    
+    width: 100%;
+}
+
+/* Navbar and Hover Effects */
+.navbar .nav-link {
+    color: #f1f1f1;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4);
+}
+
+.navbar .nav-link::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.navbar .nav-link:hover::before {
+    opacity: 1;
+}
+
+.navbar .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s ease;
+    opacity: 0;
+}
+
+.navbar .nav-link:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Table Styling */
+table {
+    width: 90%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+table thead {
+    background-color: #005b96;
+    color: #ffffff;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+table tbody tr {
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+table tbody tr:hover {
+    background-color: #e0f7ff;
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9em;
+    margin: 10px 0;
+    color: #f1f1f1;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icon {
+    color: #f1f1f1;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+.scroll-top {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #0d6efd;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}
+
+.attendance-button {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.attendance-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.logout-button {
+    background: linear-gradient(45deg, #0056b3, #007bff); 
+    color: white;
+    padding: 10px 15px;
+    transform: scale(1.05); /* Slightly larger on hover */
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 16px;
+    position: absolute; /* Positioning it within header */
+    right: 20px; /* Aligns to the right of the container */
+    top: 65px; /* Adjusts vertical positioning */
+}
+
+.logout-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.action-button {
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-right: 10px; /* Space between buttons */
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.action-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}

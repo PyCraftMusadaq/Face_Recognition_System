@@ -1,0 +1,157 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e0f7ff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px;
+}
+
+
+.header-container {
+    width: 100%;
+    background-color:#005b96; /* Same color as footer */
+    color: #ffffff;
+    padding: 55px;
+    margin-top: -100px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative; /* For positioning back button */
+}
+
+/* Back Button Styling */
+.back-button {
+    color: #ffffff;
+    background-color:#0d6efd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    position: absolute;
+    left: 10px;
+    bottom: 30px; /* Changed top to bottom to move it down */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color:#0d6efd;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #ffffff; /* White color for contrast */
+    margin: 5px 0 0 0; /* Added margin-top to move it down */
+}
+
+/* Label and Input Styling */
+label {
+    font-size: 1.1em;
+    color: #005b96;
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 80%; /* Aligns label inline with input */
+    text-align: right;
+    margin-right: 10px; /* Adds space between label and input */
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%; /* Slightly longer field */
+    padding: 10px;
+    margin-bottom: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Ensures padding does not overflow */
+}
+
+/* Button Styling */
+input[type="submit"] {
+    color: #ffffff;
+    background-color: #005b96;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 50%;
+    margin-top: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #004080;
+}
+
+
+/* Form Layout */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9em;
+    margin: 10px 0;
+    color: #f1f1f1;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icon {
+    color: #f1f1f1;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+.scroll-top {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #0d6efd;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}
+
+

@@ -1,0 +1,199 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1; /* Updated background color */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px; /* Adjust padding to move content lower */
+}
+
+/* Header Container */
+.header-container {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 55px;
+    margin-top: -100px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Header Title Styling */
+h1 {
+    font-size: 1.8em;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Logo Styling */
+.logo {
+    position: absolute;
+    right: 10px;
+    top: 80px; /* Increased top value to move the logo further down */
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+}
+
+
+/* Label and Input Styling */
+label {
+    font-size: 1.1em;
+    color: #0d6efd;
+    margin-bottom: 3px;
+    display: inline-block;
+    width: 45%; /* Adjusted width for spacing */
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 50%; /* Adjusted width to fit with label changes */
+    padding: 8px;
+    margin-top: 10px; /* Space between input and label */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button Styling */
+input[type="submit"] {
+    color: #ffffff;
+    background-color: #0d6efd;
+    padding: 8px 16px;
+    border-radius: 5px;
+    display: block;
+    margin: 15px auto; /* Center the button and add spacing above */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    width: 60%;
+    text-align: center;
+}
+
+input[type="submit"]:hover {
+    background-color: #004494;
+}
+
+/* Form Layout */
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Navbar and Hover Effects */
+.navbar .nav-link {
+    color: #f1f1f1;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.navbar .nav-link:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 16px rgba(0, 123, 255, 0.4) !important;
+}
+
+.navbar .nav-link::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 30px !important;
+    transition: opacity 0.3s ease !important;
+    opacity: 0 !important;
+}
+
+.navbar .nav-link:hover::before {
+    opacity: 1 !important;
+}
+
+.navbar .nav-link::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    width: 300% !important;
+    height: 300% !important;
+    background: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    transform: translate(-50%, -50%) scale(0) !important;
+    transition: transform 0.5s ease !important;
+    opacity: 0 !important;
+}
+
+.navbar .nav-link:hover::after {
+    transform: translate(-50%, -50%) scale(1) !important;
+    opacity: 1 !important;
+    transition: transform 0.5s ease, opacity 0.5s ease !important;
+}
+
+/* Footer Styling */
+.footer {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9em;
+    margin: 10px 0;
+    color: #f1f1f1;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icon {
+    color: #f1f1f1;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+.scroll-top {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #004494;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}

@@ -1,0 +1,225 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f1f1f1; /* Updated background color */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 60px; /* Adjust padding to move content lower */
+}
+
+/* Header Container */
+.header-container {
+    width: 100%;
+    background-color: #005b96; /* Same color as footer */
+    color: #ffffff;
+    padding: 45px; /* Reduced padding for a more compact header */
+    margin-top: -120px; /* Move it further up */
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+    position: relative; /* For positioning back button */
+    z-index: 2; /* Ensures header stays on top */
+}
+
+.logo {
+    position: absolute;
+    left: 10px;
+    top: 5px; /* Adjusted to position the logo slightly higher */
+    width: 70px; /* Adjust size as needed */
+    height: auto;
+}
+
+h1 {
+    font-size: 1.8em;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 20px 0 0 0; /* Increased top margin to push h1 down */
+    position: relative; /* Ensure it respects top adjustments if necessary */
+    top: 30px;
+}
+
+
+/* Updated Logout Button Styling */
+.logout-button {
+    position: absolute;
+    right: 100px; /* Space between button and logo */
+    top: 80px; /* Align with header content */
+    background: linear-gradient(45deg, #0056b3, #007bff); /* Gradient background */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: background 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+}
+
+.logout-button:hover {
+    background: linear-gradient(45deg, #004494, #0056b3); /* Darker gradient on hover */
+    color: #fff; /* Ensure text remains white on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+/* E-CheckIn Logo on left side */
+.e-checkin-logo-left {
+    position: absolute;
+    left: 20px;
+    top: 60px; /* Moves the logo down slightly */
+    width: 70px; 
+    height: auto;
+}
+
+.centered-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+label {
+    font-size: 1.1em;
+    color: #005b96; /* Light blue text */
+    margin-bottom: 3px;
+    width: 40%; /* Width for labels to align with inputs */
+    text-align: right; /* Align labels to the right */
+}
+
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 55%; /* Reduced width for input fields */
+    padding: 8px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border styling */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1em;
+}
+
+/* Textarea Styling */
+textarea {
+    resize: vertical; /* Allows vertical resizing */
+    min-height: 60px;
+    max-height: 150px;
+}
+
+input[type="submit"],
+.attendance-button {
+    color: #ffffff;
+    background-color: #0d6efd;
+    padding: 8px 16px; /* Reduced padding */
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    cursor: pointer; /* Pointer cursor for buttons */
+    width: auto; /* Automatic width for smaller button */
+    font-weight: bold;
+    margin-top: 10px; /* Space above the button */
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Reduced shadow for smaller button */
+    font-size: 0.9rem; /* Slightly smaller font size */
+    margin-left: auto; /* Center align */
+    margin-right: auto; /* Center align */
+    border: none; /* Remove border */
+    outline: none; /* Remove outline */
+}
+
+input[type="submit"]:hover,
+.attendance-button:hover {
+    background-color: #004080; /* Darker blue on hover */
+}
+
+.table-data {
+    width: 100%;
+    margin-top: 20px;
+}
+
+table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    background-color: #005b96;
+    color: white;
+    font-weight: bold;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+tr:nth-child(even) td {
+    background-color: #e9e9e9;
+}
+
+.footer {
+    width: 100%;
+    background-color: #005b96;
+    color: #ffffff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+.footer p {
+    font-size: 0.9em;
+    margin: 10px 0;
+    color: #f1f1f1;
+}
+
+.footer .social-icons {
+    margin: 10px 0;
+}
+
+.footer .social-icon {
+    color: #f1f1f1;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.footer .social-icon:hover {
+    color: #ffcc00;
+}
+
+.scroll-top {
+    display: inline-block;
+    background-color: #0d6efd;
+    color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.scroll-top:hover {
+    background-color: #004080;
+}
+
+.scroll-top i {
+    font-size: 18px;
+}
